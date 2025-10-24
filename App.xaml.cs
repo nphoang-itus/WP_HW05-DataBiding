@@ -15,6 +15,10 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using DataBiding.DataAccess;
+using DataBiding.Model;
+using DataBiding.Utils;
+
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -35,6 +39,7 @@ namespace DataBiding
         public App()
         {
             InitializeComponent();
+            Services.Register<IRepository<MobilePhone>, MockMobilePhoneRepository>();
         }
 
         /// <summary>
