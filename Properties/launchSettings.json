@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DataBiding (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DataBiding (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
