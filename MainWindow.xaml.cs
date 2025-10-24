@@ -58,5 +58,10 @@ namespace DataBiding
         {
             InitializeComponent();
         }
+
+        private void Window_Activated(object sender, WindowActivatedEventArgs args)
+        {
+
+        }
     }
 }

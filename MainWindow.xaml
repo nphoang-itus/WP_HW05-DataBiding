@@ -7,13 +7,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="DataBiding">
+    
+    xmlns:model ="using:DataBiding.Model"
+    
+    Title="DataBiding" Activated="Window_Activated">
 
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <Grid>
+    <ListView ItemsSource="{x:Bind ViewModel.MobilePhones}">
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:MobilePhone">
+                <Grid Padding="10" ColumnSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-    </Grid>
+                    <Image Source="{x:Bind Image}" Width="100" Height="100" Stretch="Uniform"/>
+                    
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <!-- Binding vào thuộc tính Name của MobilePhone -->
+                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold" FontSize="18" TextTrimming="CharacterEllipsis"/>
+
+                        <!-- Binding vào thuộc̣ tính Manufacturer -->
+                        <TextBlock Text="{x:Bind Manufacturer}" FontSize="14" Opacity="0.8"/>
+
+                        <!-- Binding vào thuộc tính Price và định dạng nó thành tiền tệ -->
+                        <TextBlock Foreground="DarkRed" FontWeight="SemiBold" Margin="0,8,0,0">
+                            <Run Text="{x:Bind Price}"/>
+                        </TextBlock>    
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </Window>
