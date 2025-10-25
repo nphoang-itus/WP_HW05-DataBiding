@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBiding.Model
 {
-    public class MobilePhone
+    public partial class MobilePhone
     {
         // Khóa chính để định danh
         public int Id { get; set; }

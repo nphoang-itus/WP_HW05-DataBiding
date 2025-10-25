@@ -17,8 +17,25 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <ListView
-        ItemsSource="{x:Bind ViewModel.MobilePhones}"
-        ItemTemplate="{StaticResource MobilePhoneItemTemplate}">
-    </ListView>
+    <Grid RowSpacing="10" Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Hàng cho các nút bấm -->
+            <RowDefinition Height="*"/>
+            <!-- Hàng cho ListView, lấp đầy phần còn lại -->
+        </Grid.RowDefinitions>
+
+        <!-- Hàng 0: Các nút bấm -->
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button Content="Thêm điện thoại mới (Hard-code)" Click="AddButton_Click"/>
+            <Button Content="Xóa điện thoại đầu danh sách (Hard-code)" Click="DeleteButton_Click"/>
+            <Button Content="Cập nhật giá toàn danh sách (Hard-code)" Click="UpdatePriceButton_Click"/>
+        </StackPanel>
+
+        <!-- Hàng 1: ListView -->
+        <ListView Grid.Row="1"
+              ItemsSource="{x:Bind ViewModel.MobilePhones}"
+              ItemTemplate="{StaticResource MobilePhoneItemTemplate}">
+        </ListView>
+    </Grid>
 </Window>
