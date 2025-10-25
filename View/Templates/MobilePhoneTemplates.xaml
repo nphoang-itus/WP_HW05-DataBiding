@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:model="using:DataBiding.Model"
+    xmlns:converter="using:DataBiding.View.Converter"
+    xmlns:sys="using:System">
+
+    <!-- Đăng ký converter -->
+    <converter:PriceConverter x:Key="PriceConverter"/>
+
+    <DataTemplate x:Key="MobilePhoneItemTemplate">
+        <Grid Padding="10" ColumnSpacing="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="{Binding Image}" Width="100" Height="100" Stretch="Uniform"/>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="{Binding Name}" FontWeight="Bold" FontSize="18" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Text="{Binding Manufacturer}" FontSize="14" Opacity="0.8"/>
+                <TextBlock Foreground="DarkRed" FontWeight="SemiBold" Margin="0,8,0,0">
+                    <Run Text="{Binding Price, Converter={StaticResource PriceConverter}}"/>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

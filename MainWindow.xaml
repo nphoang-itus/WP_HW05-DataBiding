@@ -17,34 +17,8 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
 
-    <ListView ItemsSource="{x:Bind ViewModel.MobilePhones}">
-        <ListView.Resources>
-            <converter:PriceConverter x:Key="PriceConverter" CultureName="en-US"/>
-        </ListView.Resources>
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:MobilePhone">
-                <Grid Padding="10" ColumnSpacing="15">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image Source="{x:Bind Image}" Width="100" Height="100" Stretch="Uniform"/>
-                    
-                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                        <!-- Binding vào thuộc tính Name của MobilePhone -->
-                        <TextBlock Text="{x:Bind Name}" FontWeight="Bold" FontSize="18" TextTrimming="CharacterEllipsis"/>
-
-                        <!-- Binding vào thuộc tính Manufacturer -->
-                        <TextBlock Text="{x:Bind Manufacturer}" FontSize="14" Opacity="0.8"/>
-
-                        <!-- Binding vào thuộc tính Price và định dạng nó thành tiền tệ -->
-                        <TextBlock Foreground="DarkRed" FontWeight="SemiBold" Margin="0,8,0,0">
-                            <Run Text="{Binding Price, Converter={StaticResource PriceConverter}}"/>
-                        </TextBlock>    
-                    </StackPanel>
-                </Grid>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+    <ListView
+        ItemsSource="{x:Bind ViewModel.MobilePhones}"
+        ItemTemplate="{StaticResource MobilePhoneItemTemplate}">
     </ListView>
 </Window>
