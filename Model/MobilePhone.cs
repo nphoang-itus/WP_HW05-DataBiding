@@ -23,6 +23,5 @@ namespace DataBiding.Model
 
         // Giá của sản phẩm
         public double Price { get; set; }
-
     }
 }
